@@ -1,11 +1,13 @@
 #!/bin/zsh
 
-xbacklight $1
+xbacklight set $1
 
-BL_NAME=radeon_bl0
-INCR_AMOUNT=$1
+#xbacklight doesn't work when optimus is disabled
 
-CURRENT=$(cat /sys/class/backlight/$BL_NAME/brightness)
-NEW=$((CURRENT+INCR_AMOUNT))
+#BL_NAME=radeon_bl0
+#INCR_AMOUNT=$1
 
-sudo bash -c "echo $NEW > /sys/class/backlight/$BL_NAME/brightness"
+#CURRENT=$(cat /sys/class/backlight/$BL_NAME/brightness)
+#NEW=$((CURRENT+INCR_AMOUNT))
+
+#sudo bash -c "echo $NEW > /sys/class/backlight/$BL_NAME/brightness"
