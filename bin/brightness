@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-xbacklight set $1
+xbacklight -set $1
 
 #xbacklight doesn't work when optimus is disabled
 
