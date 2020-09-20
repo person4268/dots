@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#use DRI_PRIME=1 for amd gpu
+xrandr --setprovideroffloadsink "VERDE @ pci:0000:01:00.0" Intel
+
+pacmd load-module module-echo-cancel
+
+#xinput set-prop 14 302 1 #Enable tap to click
+#xinput set-prop 13 282 1 #fallback incase that one doesnt work idk
+xinput set-prop $(xinput -list --id-only "AlpsPS/2 ALPS DualPoint TouchPad") "libinput Tapping Enabled" 1 #goes by name, should work
+xinput set-prop $(xinput -list --id-only "AlpsPS/2 ALPS DualPoint TouchPad") "libinput Natural Scrolling Enabled" 1 #goes by name, should work
+
+lxqt-notificationd & 
+parcellite &
+nitrogen --restore
+#polybar top &
+picom --no-dock-shadow &
+lxqt-policykit-agent &
+i3
+#openbox

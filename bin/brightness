@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+xbacklight $1
+
+BL_NAME=radeon_bl0
+INCR_AMOUNT=$1
+
+CURRENT=$(cat /sys/class/backlight/$BL_NAME/brightness)
+NEW=$((CURRENT+INCR_AMOUNT))
+
+sudo bash -c "echo $NEW > /sys/class/backlight/$BL_NAME/brightness"
